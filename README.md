@@ -9,13 +9,8 @@
 > 이겸이 — Project Support  
 > 김민욱 — Project Support  
 
-## 📦 Repositories
+## ⚙ Repositories
 
-- 🖥 **Frontend (Client)**  
-  https://github.com/pj-hellolo/Hellolo-Client
-
-- ⚙ **Backend (Server)**  
-  https://github.com/pj-hellolo/Hellolo-Server
-
-- 🤖 **AI Service**  
-  https://github.com/pj-hellolo/Hellolo-AI
+- **Client** → https://github.com/pj-hellolo/Hellolo-Client
+- **Server** → https://github.com/pj-hellolo/Hellolo-Server
+- **AI** → https://github.com/pj-hellolo/Hellolo-AI
