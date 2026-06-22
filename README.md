@@ -102,6 +102,12 @@ soma-battle/
 └── frontend/  React (src/pages, src/components, src/api, src/store, src/hooks)
 ```
 
+## Repositories
+
+- **Client** : https://github.com/pj-hellolo/Hellolo-Client
+- **Server** : https://github.com/pj-hellolo/Hellolo-Server
+- **AI** : https://github.com/pj-hellolo/Hellolo-AI
+
 ---
 
 ## 구현 메모 / 스펙과의 차이
@@ -116,8 +122,3 @@ soma-battle/
 - **뱃지/연속참여**: 언어 마스터·Hard 도전 뱃지는 제출 기록으로 클라이언트 계산.
   연속 참여/랭킹 뱃지는 서버 집계 로직 추가 시 확장 가능.
 
-## ⚙ Repositories
-
-- **Client** : https://github.com/pj-hellolo/Hellolo-Client
-- **Server** : https://github.com/pj-hellolo/Hellolo-Server
-- **AI** : https://github.com/pj-hellolo/Hellolo-AI
