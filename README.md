@@ -15,7 +15,7 @@ AI가 2일마다 문제를 자동 출제하고, 학생들이 익명/실명으로
 
 ## 기술 스택
 - **Frontend**: React + Vite (전역 상태는 Context API)
-- **Backend**: FastAPI + PostgreSQL + SQLAlchemy + Alembic
+- **Backend**: Java Spring Boot, JPA/Hibernate, Flyway, MySQL
 - **AI**: OpenAI API (작업별 모델 분리 — 생성/주간/월간 `gpt-5.4-mini`, 즉시/2일 `gpt-5.4-nano`)
 - **채점**: Judge0 API
 - **배포**: Vercel (프론트) + Railway (백엔드)
