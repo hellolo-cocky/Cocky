@@ -26,18 +26,18 @@ AI가 2일마다 문제를 자동 출제하고, 학생들이 익명/실명으로
 
 ### 1. 백엔드
 
-```bash
+​```bash
 cd backend
-python -m venv .venv
-.venv\Scripts\activate          # Windows (mac/linux: source .venv/bin/activate)
-pip install -r requirements.txt
 
-copy .env.example .env          # 값 채우기 (DATABASE_URL 필수)
+# 환경변수 설정: DB 접속 정보 (SPRING_DATASOURCE_URL / USERNAME / PASSWORD)
 # 키 없이 UI만 둘러볼 경우 OPENAI_API_KEY / JUDGE0_API_KEY 는 비워둬도 됨
 
-python seed.py                  # 데모 데이터 생성 (관리자/학생/샘플 문제/제출)
-uvicorn app.main:app --reload   # http://localhost:8000  (문서: /docs)
-```
+./gradlew bootRun               # Windows: gradlew.bat bootRun
+# http://localhost:8080
+​```
+
+- DB 스키마는 서버 기동 시 Flyway 마이그레이션(`src/main/resources/db/migration`)이 자동 적용
+- API 명세는 Notion 스펙 문서 참고
 
 데모 계정:
 - 관리자 `admin@somago.hs.kr` / `admin1234`
@@ -98,7 +98,8 @@ AI 피드백 = 시간복잡도 효율(10) + 코드 가독성(10) + 풀이 독창
 ## 디렉토리
 ```
 soma-battle/
-├── backend/   FastAPI (app/api, app/services, app/models, app/core)
+├── backend/   Spring Boot (controller / service / domain / repository)
+│   └── src/main/resources/db/migration   (Flyway)
 └── frontend/  React (src/pages, src/components, src/api, src/store, src/hooks)
 ```
 
@@ -118,7 +119,8 @@ soma-battle/
 - **알림**: 인메모리 큐 + 폴링(`notification.py`, Navbar 30초 폴링)으로 구현.
   실서비스에서는 WebSocket/푸시/이메일로 교체 가능하도록 인터페이스만 통일.
 - **인증**: JWT(localStorage) 기반. 익명 토글 시 AI 스타일 닉네임 자동 생성.
-- **DB 테이블 생성**: 개발 편의를 위해 startup에서 `create_all`. 운영은 Alembic 사용.
+- **DB 스키마 관리**: 개발/운영 모두 Flyway 마이그레이션으로 버전 관리.
+  JPA `ddl-auto`는 `validate`로 두어 엔티티와 스키마 불일치를 기동 시점에 잡는다.
 - **뱃지/연속참여**: 언어 마스터·Hard 도전 뱃지는 제출 기록으로 클라이언트 계산.
   연속 참여/랭킹 뱃지는 서버 집계 로직 추가 시 확장 가능.
 
