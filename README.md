@@ -8,7 +8,7 @@ AI가 2일마다 문제를 자동 출제하고, 학생들이 익명/실명으로
 
 > 김민준 — Design  
 > 정성원 — Backend  
-> 양지우 — Frontend
+> 양지우 — Frontend 
 > 김민욱 — Frontend  
 > 임서하 — AI  
 > 이겸이 — Project Support   
